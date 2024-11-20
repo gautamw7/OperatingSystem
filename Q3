@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Read the size of the array
+read -p "Enter the number of elements in the array: " n
+
+# Read the array elements
+echo "Enter the elements of the array:"
+for (( i=0; i<n; i++ )); do
+    read arr[i]
+done
+
+# Sort the array in descending order using Bubble Sort
+for (( i=0; i<n; i++ )); do
+    for (( j=i+1; j<n; j++ )); do
+        if [ ${arr[j]} -lt ${arr[$((j+1))]} ]; then
+            # Swap elements
+            temp=${arr[j]}
+            arr[j]=${arr[$((j+1))]}
+            arr[$((j+1))]=$temp
+        fi
+    done
+done
+
+# Display the sorted array
+echo "Array elements in descending order:"
+for (( i=0; i<n; i++ )); do
+    echo -n "${arr[i]} "
+done
+echo
