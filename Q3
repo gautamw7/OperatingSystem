@@ -12,11 +12,11 @@ done
 # Sort the array in descending order using Bubble Sort
 for (( i=0; i<n; i++ )); do
     for (( j=i+1; j<n; j++ )); do
-        if [ ${arr[j]} -lt ${arr[$((j+1))]} ]; then
+        if [ ${arr[i]} -lt ${arr[j]} ]; then
             # Swap elements
-            temp=${arr[j]}
-            arr[j]=${arr[$((j+1))]}
-            arr[$((j+1))]=$temp
+            temp=${arr[i]}
+            arr[i]=${arr[j]}
+            arr[j]=$temp
         fi
     done
 done
@@ -24,6 +24,6 @@ done
 # Display the sorted array
 echo "Array elements in descending order:"
 for (( i=0; i<n; i++ )); do
-    echo -n "${arr[i]} "
+    echo "${arr[i]} "
 done
 echo
